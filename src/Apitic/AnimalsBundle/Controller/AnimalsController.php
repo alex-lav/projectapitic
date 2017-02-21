@@ -14,10 +14,6 @@ class AnimalsController extends Controller
 {
   public function indexAction($page)
   {
-    if ($page < 1) {
-      throw $this->createNotFoundException("La page ".$page." n'existe pas.");
-    }
-
     $nbPerPage = 5;
 
     $listAnimals = $this->getDoctrine()
@@ -42,10 +38,6 @@ class AnimalsController extends Controller
     }
 
     $nbPages = ceil(count($listAnimals)/$nbPerPage);
-
-    if ($page > $nbPages) {
-      throw $this->createNotFoundException("La page ".$page." n'existe pas.");
-    }
 
     return $this->render('ApiticAnimalsBundle:Animals:index.html.twig', array(
       'listAnimals' => $listAnimals,
