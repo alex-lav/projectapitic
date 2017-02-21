@@ -1,0 +1,69 @@
+<h3>Formulaire</h3>
+
+<div class="well">
+  {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group">
+      {{ form_label(form.name, "Nom de l'animal", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {{ form_errors(form.name) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      {{ form_label(form.type, "Espèce", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+      {{ form_errors(form.type) }}
+
+      <div class="col-sm-4">
+        {{ form_widget(form.type, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+
+    {% if form.feathers is defined %}
+      <div class="form-group">
+        {{ form_label(form.feathers, "Description du plumage", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+        {{ form_errors(form.feathers) }}
+
+        <div class="col-sm-4">
+          {{ form_widget(form.feathers, {'attr': {'class': 'form-control'}}) }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if form.fur is defined %}
+      <div class="form-group">
+        {{ form_label(form.fur, "Description de la fourrure", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+        {{ form_errors(form.fur) }}
+
+        <div class="col-sm-4">
+          {{ form_widget(form.fur, {'attr': {'class': 'form-control'}}) }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if form.scale is defined %}
+      <div class="form-group">
+        {{ form_label(form.scale, "Description des écailles", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+        {{ form_errors(form.scale) }}
+
+        <div class="col-sm-4">
+          {{ form_widget(form.scale, {'attr': {'class': 'form-control'}}) }}
+        </div>
+      </div>
+    {% endif %}
+
+  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+
+  {{ form_rest(form) }}
+  
+  {{ form_end(form) }}
+</div>

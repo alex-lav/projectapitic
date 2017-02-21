@@ -1,0 +1,4 @@
+services:
+#    apitic_animals.example:
+#        class: Apitic\AnimalsBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

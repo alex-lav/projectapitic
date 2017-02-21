@@ -1,0 +1,3 @@
+apitic_animals:
+    resource: "@ApiticAnimalsBundle/Resources/config/routing.yml"
+    prefix:   /animals

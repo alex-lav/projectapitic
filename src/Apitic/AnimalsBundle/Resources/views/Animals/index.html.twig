@@ -1,0 +1,72 @@
+{% extends "ApiticAnimalsBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block apiticanimals_body %}
+
+  <h2>Liste des animaux</h2>
+
+
+  <table class="table table-hover">
+    <tr>
+      <th>Nom</th>
+      <th>Type</th>
+      <th>Plumage</th>
+      <th>Ecailles</th>
+      <th>Fourrure</th>
+      <th>Description</th>
+      <th></th>
+      <th>
+        <td style="text-align: right;">
+          <a href="{{ path('apitic_animals_add') }}" class="btn btn-default">
+            Ajouter un animal
+          </a>
+        </td>
+      </th>
+    </tr>
+    {% for animal in listAnimals %}
+      <tr style="background-color: {{ animal.type.color }}">
+        <td style="font-weight: bold;">{{ animal.name }}</td>
+        <td>{{ animal.type.name }}</td>
+        <td>{{ animal.feathers }}</td>
+        <td>{{ animal.scale }}</td>
+        <td>{{ animal.fur }}</td>
+        <td>{{ animal.description }}</td>
+        <td></td>
+        <td>
+          <a href="{{ path('apitic_animals_edit', {'id': animal.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-edit"></i>
+            Modifier les informations
+          </a>
+        </td>
+        <td>
+          <a href="{{ path('apitic_animals_delete', {'id': animal.id}) }}" class="btn btn-danger">
+            <i class="glyphicon glyphicon-trash"></i>
+            Supprimer l'animal
+          </a>
+        </td>
+        
+      </tr>
+    {% else %}
+      <tr><td>Pas (encore !) d'animaux</td></tr>
+    {% endfor %}
+    <tr>
+      <td colspan=9 style="text-align: right;">
+        <a href="{{ path('apitic_animals_add') }}" class="btn btn-default">
+          Ajouter un animal
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <ul class="pagination">
+    {% for p in range(1, nbPages) %}
+      <li{% if p == page %} class="active"{% endif %}>
+        <a href="{{ path('apitic_animals_home', {'page': p}) }}">{{ p }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+# src/Apitic/AnimalsBundle/Resources/config/routing.yml
+
+apitic_animals_home:
+    path:      /{page}
+    defaults:
+        _controller: ApiticAnimalsBundle:Animals:index
+        page:        1
+    requirements:
+        page: \d*
+
+apitic_animals_add:
+    path:      /add
+    defaults:  { _controller: ApiticAnimalsBundle:Animals:add }
+
+apitic_animals_edit:
+    path:      /edit/{id}
+    defaults:  { _controller: ApiticAnimalsBundle:Animals:edit }
+    requirements:
+        id: \d+
+
+apitic_animals_delete:
+    path:      /delete/{id}
+    defaults:  { _controller: ApiticAnimalsBundle:Animals:delete }
+    requirements:
+        id: \d+

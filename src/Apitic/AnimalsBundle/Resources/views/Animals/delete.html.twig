@@ -1,0 +1,24 @@
+{% extends "ApiticAnimalsBundle::layout.html.twig" %}
+
+{% block title %}
+  Supprimer un animal - {{ parent() }}
+{% endblock %}
+
+{% block apiticanimals_body %}
+
+  <h2>Supprimer un animal</h2>
+
+  <p>
+    Etes-vous certain de vouloir supprimer l'animal "{{ animal.name }}" ?
+  </p>
+
+  <form action="{{ path('apitic_animals_delete', {'id': animal.id}) }}" method="post">
+    <a href="{{ path('apitic_animals_home') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la liste des animaux
+    </a>
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {{ form_rest(form) }}
+  </form>
+
+{% endblock %}

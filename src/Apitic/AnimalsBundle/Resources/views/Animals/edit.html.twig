@@ -1,0 +1,20 @@
+{% extends "ApiticAnimalsBundle::layout.html.twig" %}
+
+{% block title %}
+  Modifier les informations - {{ parent() }}
+{% endblock %}
+
+{% block apiticanimals_body %}
+
+  <h2>Modifier un animal</h2>
+
+  {{ include("ApiticAnimalsBundle:Animals:form.html.twig") }}
+
+  <p>
+    <a href="{{ path('apitic_animals_home') }}" class="btn btn-default">
+      <i class="glyphicon glyphicon-chevron-left"></i>
+      Retour à la liste des animaux
+    </a>
+  </p>
+
+{% endblock %}
